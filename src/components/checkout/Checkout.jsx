@@ -2,13 +2,12 @@ import "./checkout.css"
 import { useContextApp } from "../../context/ContextApp"
 import { useState } from "react";
 import FormCheckout from "../FormCheckout/FormCheckout";
-// import LockIcon from '@mui/icons-material/Lock';
 import lockIcon from "../../assets/img/lock_icon.png"
 
 function Checkout() {
     const [installments, setInstallments] = useState(1)
     const { data } = useContextApp()
-
+    console.log(data, "linea 11 Checkout.jsx")
     function totalAmount(total) {
         return "" + (data?.attributes.currency_symbol + total?.total)
     }

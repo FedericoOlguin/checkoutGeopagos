@@ -1,10 +1,10 @@
-
 import "./formCheckout.css"
 import iconCard from "../../assets/img/logo-VISA- Letras.png"
+import InputRadio from "../inputRadio/InputRadio";
+
+function FormCheckout(props) {
 
 
-function FormCheckout({ installments, symbol, setInstallments, actualInstallaments }) {
-    console.log(installments);
     return (
         <form className="form_checkout">
 
@@ -14,11 +14,11 @@ function FormCheckout({ installments, symbol, setInstallments, actualInstallamen
             </label>
             <div className="div_row">
                 <label className="form_label label_s" htmlFor="expiration">
-                    <input className="form_input" placeholder="MM/AA" name="expiration" id="expiration" type="text" />
+                    <input  maxLength={5} className="form_input" placeholder="MM/AA" name="expiration" id="expiration" type="text" />
                     Fecha de expiracion
                 </label>
                 <label className="form_label label_s" htmlFor="codSegurity">
-                    <input className="form_input" placeholder="Cód. de seguridad ?" name="codSecurity" id="codSecurity" type="text" />
+                    <input maxLength={3} min={1} className="form_input" placeholder="Cód. de seguridad ?" name="codSecurity" id="codSecurity" type="text" />
                     3 números al dorso de tarjeta
                 </label>
             </div>
@@ -32,25 +32,15 @@ function FormCheckout({ installments, symbol, setInstallments, actualInstallamen
             </label>
             <h2 className="h2">Cuotas</h2>
             {
-                installments?.map(element => {
+                props.installments?.map(element => {
                     return (
-
-                        <label key={element.installment} className={actualInstallaments === element.installment ? "label_radio label_active" : "label_radio"} htmlFor="dni">
-                            <input className="input_radio" minLength={8} placeholder="DNI del titular" name="dni" id="dni" type="radio"
-                                onChange={() => {
-                                    setInstallments(element.installment)
-                                }} />
-                            <div className="div_column">
-                                {element.installment} cuotas de {element.installmentPrice}
-                                <span>
-                                </span>
-                                CF: {element.financialRate}%
-                            </div>
-                            <span className="span_radio">
-                                {symbol + element.total}
-                            </span>
-                        </label>
-
+                        <InputRadio key={element.installment}
+                            element={element}
+                            installments={props.installments}
+                            symbol={props.symbol}
+                            setInstallments={props.setInstallments}
+                            actualInstallaments={props.actualInstallaments}
+                        />
                     )
                 })
             }
