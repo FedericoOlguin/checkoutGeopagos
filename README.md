@@ -2,7 +2,7 @@
 
 ## _Versión 0.1.0_
 
-Challenge geopagos
+Challenge Geopagos
 
 ## Tecnologías
 
