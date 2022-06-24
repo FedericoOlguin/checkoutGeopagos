@@ -10,11 +10,11 @@ function FormCheckout(props) {
     const form = useRef()
     const { updateNavColor } = useContextApp()
 
+    // genera la orden de pago y 
     function sendOrder(e) {
         e.preventDefault()
         form.current.focus()
         let dataFrom = new FormData(form.current)
-
         let order = {
             idCard: dataFrom.get("idCard"),
             expiration: dataFrom.get("expiration"),
@@ -26,12 +26,13 @@ function FormCheckout(props) {
         }
         navigate("/error")
     }
+
     useEffect(() => {
         updateNavColor()
     }, [])
+
     return (
         <form className="form_checkout" onSubmit={(e) => { sendOrder(e) }} ref={form}>
-
             <label className="form_label  " htmlFor="idCard">Numero de tarjeta
                 <div className="label_row">
                     <input required className="form_input" defaultValue={2345665635782347} name="idCard" id="idCard" type="number" minLength={12} min={1} />
@@ -57,20 +58,17 @@ function FormCheckout(props) {
                 Número de documento
             </label>
             <h2 className="h2">Cuotas</h2>
-            {
-                props.installments?.map(element => {
-                    return (
-                        <InputRadio key={element.installment}
-                            element={element}
-                            installments={props.installments}
-                            symbol={props.symbol}
-                            setInstallments={props.setInstallments}
-                            actualInstallaments={props.actualInstallaments}
-                        />
-                    )
-                })
-            }
-
+            {props.installments?.map(element => {
+                return (
+                    <InputRadio key={element.installment}
+                        element={element}
+                        installments={props.installments}
+                        symbol={props.symbol}
+                        setInstallments={props.setInstallments}
+                        actualInstallaments={props.actualInstallaments}
+                    />
+                )
+            })}
             <h2 className="h2">Datos presonales</h2>
             <label className="form_label" htmlFor="email">
                 <input required className="form_input" placeholder="E-mail" name="email" id="email" type="email" minLength={8} />

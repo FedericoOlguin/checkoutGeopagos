@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Chekout from "../../components/checkout/Checkout"
-import { useContextApp } from "../../context/ContextApp";
-
 
 
 function CheckoutPage() {

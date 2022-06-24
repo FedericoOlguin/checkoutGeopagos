@@ -33,7 +33,12 @@ function Checkout() {
                 })}
             </div>
             <p className="font_small bold">Paga conm tarjeta de crédito o débito. <span className="checkout__emphasis font_small">Ver tarjetas</span></p>
-            <FormCheckout setInstallments={setInstallments} actualInstallaments={installments} installments={data?.attributes.installments} symbol={data?.attributes.currency_symbol} />
+            <FormCheckout
+                setInstallments={setInstallments}
+                actualInstallaments={installments}
+                installments={data?.attributes.installments}
+                symbol={data?.attributes.currency_symbol} 
+                />
             <div className="div_row center">
                 <img className="iconLock" src={lockIcon} alt="padlock" />
                 <p className="mesage_security">Todas las transacciones son seguras y encriptadas</p>
