@@ -7,7 +7,7 @@ import lockIcon from "../../assets/img/lock_icon.png"
 function Checkout() {
     const [installments, setInstallments] = useState(1)
     const { data } = useContextApp()
-    console.log(data, "linea 11 Checkout.jsx")
+
     function totalAmount(total) {
         return "" + (data?.attributes.currency_symbol + total?.total)
     }

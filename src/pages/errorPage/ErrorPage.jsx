@@ -1,11 +1,16 @@
 import "./errorPage.css"
 import ErrorIcon from "../../assets/img/error_iconRed.svg"
-import {Link as LinkRouter} from "react-router-dom"
-
+import { Link as LinkRouter } from "react-router-dom"
+import { useContextApp } from "../../context/ContextApp"
+import { useEffect } from "react"
 
 
 function ErrorPage() {
+    const { updateNavColor } = useContextApp()
+    useEffect(() => {
 
+        updateNavColor()
+    }, [])
     return (
         <div className="error_container">
             <img className="error_icon" src={ErrorIcon} alt="errorIcon" />
