@@ -1,0 +1,25 @@
+.error_container {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3rem;
+}
+
+.error_icon {
+  width: 4rem;
+}
+.btn_error {
+  width: 15rem;
+  font-size: 1rem;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.white {
+  background-color: white;
+}

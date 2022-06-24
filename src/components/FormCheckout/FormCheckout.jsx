@@ -1,20 +1,42 @@
 import "./formCheckout.css"
 import iconCard from "../../assets/img/logo-VISA- Letras.png"
 import InputRadio from "../inputRadio/InputRadio";
+import { useRef } from "react"
 
 function FormCheckout(props) {
 
+    const form = useRef()
 
+
+    function sendOrder(e) {
+        e.preventDefault()
+        form.current.focus()
+        let dataFrom = new FormData(form.current)
+
+        let order = {
+            idCard: dataFrom.get("idCard"),
+            expiration: dataFrom.get("expiration"),
+            securityCod: dataFrom.get("codSecurity"),
+            titularName: dataFrom.get("titularName"),
+            dni: dataFrom.get("dni"),
+            installament: props.actualInstallaments,
+            email: dataFrom.get("email"),
+        }
+
+        window.location = "/error"
+    }
     return (
-        <form className="form_checkout">
+        <form className="form_checkout" onSubmit={(e) => { sendOrder(e) }} ref={form}>
 
-            <label className="form_label" htmlFor="idCard">Numero de tarjeta
-                <img className="iconVisa" src={iconCard} alt="icon visa" />
-                <input className="form_input" defaultValue={2345665635782347} name="idCard" id="idCard" type="number" minLength={12} min={1} />
+            <label className="form_label  " htmlFor="idCard">Numero de tarjeta
+                <div className="label_row">
+                    <input className="form_input" defaultValue={2345665635782347} name="idCard" id="idCard" type="number" minLength={12} min={1} />
+                    <img className="iconVisa" src={iconCard} alt="icon visa" />
+                </div>
             </label>
             <div className="div_row">
                 <label className="form_label label_s" htmlFor="expiration">
-                    <input  maxLength={5} className="form_input" placeholder="MM/AA" name="expiration" id="expiration" type="text" />
+                    <input maxLength={5} className="form_input" placeholder="MM/AA" name="expiration" id="expiration" type="text" />
                     Fecha de expiracion
                 </label>
                 <label className="form_label label_s" htmlFor="codSegurity">
@@ -22,8 +44,8 @@ function FormCheckout(props) {
                     3 números al dorso de tarjeta
                 </label>
             </div>
-            <label className="form_label" htmlFor="codSegurity">
-                <input className="form_input" placeholder="Nombre del titular" name="codSecurity" id="codSecurity" type="text" />
+            <label className="form_label" htmlFor="titularName">
+                <input className="form_input" placeholder="Nombre del titular" name="titularName" id="titularName" type="text" />
                 Como figura en la tarjeta
             </label>
             <label className="form_label" htmlFor="dni">
@@ -46,12 +68,12 @@ function FormCheckout(props) {
             }
 
             <h2 className="h2">Datos presonales</h2>
-            <label className="form_label" htmlFor="dni">
-                <input className="form_input" placeholder="E-mail" name="dni" id="dni" type="email" minLength={8} />
+            <label className="form_label" htmlFor="email">
+                <input className="form_input" placeholder="E-mail" name="email" id="email" type="email" minLength={8} />
                 A este email te enviaremos el recibo de compra
             </label>
-
-            <button className="btn">Continuar</button>
+            <input type="submit" value={"Continuar"} className="btn" name="send" id="send" />
+            {/* <button type="submit" className="btn">Continuar</button> */}
         </form>
     )
 }

@@ -12,6 +12,14 @@
   font-weight: 900;
   position: relative;
 }
+.label_row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.label_row input {
+  width: 80%;
+}
 
 .label_s {
   width: 46%;
@@ -32,10 +40,11 @@
 
 .iconVisa {
   width: 3.3rem;
-  padding: 0.4rem 0.2rem;
+  height: 2.3rem;
+  padding: 0.4rem 0.1rem;
   border: 1px solid gray;
   border-radius: 2px;
-  position: absolute;
+  /* position: absolute; */
   background-color: rgba(128, 128, 128, 0.068);
   right: 0;
   top: 10px;
