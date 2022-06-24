@@ -1,0 +1,49 @@
+.checkout__total {
+  width: 100%;
+  min-height: 5rem;
+  border: solid 1.5px rgba(128, 128, 128, 0.445);
+  margin: 1rem 0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+.div_row {
+  display: flex;
+  margin: 0.3rem 0;
+  justify-content: space-between;
+}
+
+.checkout__emphasis {
+  color: #8f2df5;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.font_small {
+  font-size: 0.9rem;
+}
+.font_medium {
+  /* font-size: 1.5rem; */
+  font-size: 20px;
+}
+.bold {
+  font-weight: 900;
+}
+
+.iconLock {
+  width: 1.5rem;
+  opacity: 0.5;
+  margin: 0;
+}
+.mesage_security {
+  font-size: small;
+  font-weight: 900;
+  margin: 1rem;
+  opacity: 0.5;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}

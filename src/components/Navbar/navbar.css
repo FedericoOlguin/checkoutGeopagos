@@ -1,0 +1,20 @@
+.nav__container {
+  width: 100%;
+  height: 4rem;
+  background-color: #191C3C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.nav__logo {
+  width: 11rem;
+  margin-bottom: -5px;
+  margin-left: 0.5rem;
+}
+
+.nav__shopName {
+  color: white;
+  margin-right: 1.3rem;
+}
